@@ -1,22 +1,27 @@
+//Created by Campus
 package model;
 
-public class Order {
-    private int id;
-    private String create_date;
-    private int user_id, cost, discount, fee, total;
-    private String payment, delivery, note;
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.ArrayList;
 
-    public Order(int id, String create_date, int user_id, int cost, int discount, int fee, String payment, String delivery, String note) {
+public class Order implements Serializable {
+    private int id, quantity;
+    private Client client;
+    private Date createdDate;
+    private ArrayList<BoughtProduct> listBoughtProduct;
+    private float totalCost;
+
+    public Order() {
+    }
+
+    public Order(int id, Client client, Date createdDate, ArrayList<BoughtProduct> listBoughtProduct, int quantity, float totalCost) {
         this.id = id;
-        this.create_date = create_date;
-        this.user_id = user_id;
-        this.cost = cost;
-        this.discount = discount;
-        this.fee = fee;
-        this.total = cost - discount + fee;
-        this.delivery = delivery;
-        this.payment = payment;
-        this.note = note;
+        this.quantity = quantity;
+        this.client = client;
+        this.createdDate = createdDate;
+        this.listBoughtProduct = listBoughtProduct;
+        this.totalCost = totalCost;
     }
 
     public int getId() {
@@ -27,77 +32,49 @@ public class Order {
         this.id = id;
     }
 
-    public String getCreate_date() {
-        return create_date;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setCreate_date(String create_date) {
-        this.create_date = create_date;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public Date getCreatedDate() {
+        return createdDate;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
     }
 
-    public int getCost() {
-        return cost;
+    public ArrayList<BoughtProduct> getListBoughtProduct() {
+        return listBoughtProduct;
     }
 
-    public void setCost(int cost) {
-        this.cost = cost;
+    public void setListBoughtProduct(ArrayList<BoughtProduct> listBoughtProduct) {
+        this.listBoughtProduct = listBoughtProduct;
     }
 
-    public int getDiscount() {
-        return discount;
+    public float getTotalCost() {
+        return totalCost;
     }
 
-    public void setDiscount(int discount) {
-        this.discount = discount;
+    public void setTotalCost(float totalCost) {
+        this.totalCost = totalCost;
     }
-
-    public int getFee() {
-        return fee;
-    }
-
-    public void setFee(int fee) {
-        this.fee = fee;
-    }
-
-    public int getTotal() {
-        return total;
-    }
-
-    public void setTotal(int total) {
-        this.total = total;
-    }
-
-    public String getDelivery() {
-        return delivery;
-    }
-
-    public void setDelivery(String delivery) {
-        this.delivery = delivery;
-    }
-
-    public String getPayment() {
-        return payment;
-    }
-
-    public void setPayment(String payment) {
-        this.payment = payment;
-    }
-
-    public String getNote() {
-        return note;
-    }
-
-    public void setNote(String note) {
-        this.note = note;
-    }
-
     
+    public void setClient(Client client) {
+        this.client = client;
+    }
+    
+    public Client getClient() {
+        return client;
+    }
+    
+    @Override
+    public String toString() {
+        return "Order{" + "id=" + id + ", quantity=" + quantity + ", createdDate=" + createdDate + ", listBoughtProduct=" + listBoughtProduct + ", totalCost=" + totalCost + '}';
+    }
+
 }

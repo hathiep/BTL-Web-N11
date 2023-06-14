@@ -5,7 +5,7 @@
 
 package control;
 
-import context.UserDAO;
+import dao.admin.UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -14,13 +14,9 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.List;
-import model.User;
+import model.admin.User;
 
-/**
- *
- * @author havanthiep
- */
-@WebServlet(name="LoginServlet", urlPatterns={"/login"})
+@WebServlet(name="LoginServlet", urlPatterns={"/login-admin"})
 public class LoginServlet extends HttpServlet {
    
     /** 
@@ -41,9 +37,7 @@ public class LoginServlet extends HttpServlet {
         for(User i:list_User){
             if(i.getEmail().equals(email)){
                 if(i.getPassword().equals(password)){
-                    String basePath = request.getContextPath() + "/admin/";
-                    String orderPath = basePath + "home";
-                    if(i.getIs_admin() == 1) response.sendRedirect("/Phukien_Project/admin/home");
+                    if(i.getIs_admin() == 1) response.sendRedirect(request.getContextPath() + "/admin/home");
                 }
             }
         }

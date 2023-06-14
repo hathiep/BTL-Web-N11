@@ -1,6 +1,6 @@
 CREATE TABLE Orders (
 	id INT PRIMARY KEY IDENTITY(1,1),
-	create_date VARCHAR(100),
+	create_date DATETIME,
 	user_id INT,
 	cost INT,
 	discount INT,

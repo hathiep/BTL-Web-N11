@@ -1,27 +1,62 @@
+//Created by Campus
 package model;
 
-public class Product {
-    private int id;
-    private String name, image, supplier, des;
-    private int price, quantity_sold, quantity_remain;
+import java.io.Serializable;
+import jdk.internal.org.objectweb.asm.commons.StaticInitMerger;
 
-    public Product(int id, String name, String image, String supplier, String des, int price, int quantity_sold, int quantity_remain) {
-        this.id = id;
+public class Product implements Serializable {
+    private int ID, intPrice, quantity;
+    private float price;
+    private String name, imgLink1, imgLink2, title, description, address;
+    private Category category;
+
+    public Product() {
+    }
+
+    public Product(int ID, String name, String imgLink1, String imgLink2, String title, String description, float price, String address, Category category, int quantity) {
+        this.ID = ID;
         this.name = name;
-        this.image = image;
-        this.supplier = supplier;
-        this.des = des;
+        this.imgLink1 = imgLink1;
+        this.imgLink2 = imgLink2;
+        this.title = title;
+        this.description = description;
         this.price = price;
-        this.quantity_sold = quantity_sold;
-        this.quantity_remain = quantity_remain;
+        this.intPrice = (int) price;
+        this.address = address;
+        this.category = category;
+        this.quantity = quantity;
     }
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public int getIntPrice() {
+        return intPrice;
+    }
+
+    public void setIntPrice(int intPrice) {
+        this.intPrice = intPrice;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
     }
 
     public String getName() {
@@ -32,52 +67,57 @@ public class Product {
         this.name = name;
     }
 
-    public String getDes() {
-        return des;
+    public String getImgLink1() {
+        return imgLink1;
     }
 
-    public void setDes(String des) {
-        this.des = des;
+    public void setImgLink1(String imgLink1) {
+        this.imgLink1 = imgLink1;
     }
 
-    public String getSupplier() {
-        return supplier;
+    public String getImgLink2() {
+        return imgLink2;
     }
 
-    public void setSupplier(String supplier) {
-        this.supplier = supplier;
+    public void setImgLink2(String imgLink2) {
+        this.imgLink2 = imgLink2;
     }
 
-    public int getPrice() {
-        return price;
+    public String getTitle() {
+        return title;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public int getQuantity_sold() {
-        return quantity_sold;
+    public String getDescription() {
+        return description;
     }
 
-    public void setQuantity_sold(int quantity_sold) {
-        this.quantity_sold = quantity_sold;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public int getQuantity_remain() {
-        return quantity_remain;
+    public String getAddress() {
+        return address;
     }
 
-    public void setQuantity_remain(int quantity_remain) {
-        this.quantity_remain = quantity_remain;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getImage() {
-        return image;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" + "ID=" + ID + ", intPrice=" + intPrice + ", quantity=" + quantity + ", price=" + price + ", name=" + name + ", imgLink1=" + imgLink1 + ", imgLink2=" + imgLink2 + ", title=" + title + ", description=" + description + ", address=" + address + ", category=" + category + '}';
+    }
+     
 }

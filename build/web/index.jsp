@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="styles/login.css">
-    <link rel="stylesheet" href="styles/style2.css">
+    <link rel="stylesheet" href="styles1/login.css">
+    <link rel="stylesheet" href="styles1/style2.css">
     <title>Phụ Kiện Công Nghệ</title>
 </head>
     <body>
-        <form method="post" action="login" class="form">
+        <form method="post" action="login-admin" class="form">
             
             <h1 id="heading">Đăng nhập</h1>
 
@@ -25,7 +25,7 @@
                 <span class="form-message" id="password_error">${password_error}</span>
             </div>
 
-            <button class="form-button" id="button" type="submit" onclick="validate_Login()">Đăng nhập</button>
+            <button class="form-button" id="button" type="submit" onclick="">Đăng nhập</button>
         
             <div class="form-link">
                 <label class="form-label" >Bạn chưa có tài khoản?</label>
